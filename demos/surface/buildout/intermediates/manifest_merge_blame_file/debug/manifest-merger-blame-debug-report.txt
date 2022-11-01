@@ -1,0 +1,98 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 Copyright (C) 2019 The Android Open Source Project
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9          http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.google.android.exoplayer2.surfacedemo"
+19    android:versionCode="2017001"
+20    android:versionName="2.17.1" >
+21
+22    <uses-sdk
+22-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:22:3-14
+23        android:minSdkVersion="29"
+23-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:22:3-14
+24        android:targetSdkVersion="29" />
+24-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:22:3-14
+25
+26    <uses-permission android:name="android.permission.INTERNET" />
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:19:3-64
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:19:20-62
+27    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:20:3-77
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:20:20-75
+28    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+28-->[:library-core] /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/core/buildout/intermediates/merged_manifest/debug/AndroidManifest.xml:26:5-79
+28-->[:library-core] /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/core/buildout/intermediates/merged_manifest/debug/AndroidManifest.xml:26:22-76
+29
+30    <application
+30-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:24:3-48:17
+31        android:allowBackup="false"
+31-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:25:7-34
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.7.0] /Users/hien/.gradle/caches/transforms-3/2a12499f0789d82ae12af3669be2f3e1/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+33        android:debuggable="true"
+34        android:exported="true"
+34-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:28:7-30
+35        android:extractNativeLibs="false"
+36        android:icon="@mipmap/ic_launcher"
+36-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:26:7-41
+37        android:label="@string/application_name" >
+37-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:27:7-47
+38        <activity
+38-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:30:5-46:16
+39            android:name="com.google.android.exoplayer2.surfacedemo.MainActivity"
+39-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:31:9-37
+40            android:exported="true" >
+40-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:32:9-32
+41            <intent-filter>
+41-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:33:7-36:23
+42                <action android:name="android.intent.action.MAIN" />
+42-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:34:9-60
+42-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:34:17-58
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:35:9-68
+44-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:35:19-66
+45            </intent-filter>
+46            <intent-filter>
+46-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:37:7-45:23
+47                <action android:name="com.google.android.exoplayer.surfacedemo.action.VIEW" />
+47-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:38:9-86
+47-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:38:17-84
+48
+49                <category android:name="android.intent.category.DEFAULT" />
+49-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:39:9-67
+49-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:39:19-65
+50
+51                <data android:scheme="http" />
+51-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:9-38
+51-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:15-36
+52                <data android:scheme="https" />
+52-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:9-38
+52-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:15-36
+53                <data android:scheme="content" />
+53-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:9-38
+53-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:15-36
+54                <data android:scheme="asset" />
+54-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:9-38
+54-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:15-36
+55                <data android:scheme="file" />
+55-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:9-38
+55-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/AndroidManifest.xml:40:15-36
+56            </intent-filter>
+57        </activity>
+58    </application>
+59
+60</manifest>

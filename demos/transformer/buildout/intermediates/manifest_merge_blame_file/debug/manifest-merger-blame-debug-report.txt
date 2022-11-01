@@ -1,0 +1,121 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3  ~ Copyright 2021 The Android Open Source Project
+4  ~
+5  ~ Licensed under the Apache License, Version 2.0 (the "License");
+6  ~ you may not use this file except in compliance with the License.
+7  ~ You may obtain a copy of the License at
+8  ~
+9  ~      http://www.apache.org/licenses/LICENSE-2.0
+10  ~
+11  ~ Unless required by applicable law or agreed to in writing, software
+12  ~ distributed under the License is distributed on an "AS IS" BASIS,
+13  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14  ~ See the License for the specific language governing permissions and
+15  ~ limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.google.android.exoplayer2.transformerdemo"
+19    android:versionCode="2017001"
+20    android:versionName="2.17.1" >
+21
+22    <uses-sdk
+22-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:20:3-15
+23        android:minSdkVersion="21"
+23-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:20:3-15
+24        android:targetSdkVersion="29" />
+24-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:20:3-15
+25
+26    <uses-permission android:name="android.permission.INTERNET" />
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:22:3-64
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:22:20-62
+27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:23:3-76
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:23:20-74
+28    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+28-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:24:3-77
+28-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:24:20-75
+29
+30    <application
+30-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:26:3-59:17
+31        android:allowBackup="false"
+31-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:27:7-34
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.7.0] /Users/hien/.gradle/caches/transforms-3/2a12499f0789d82ae12af3669be2f3e1/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+33        android:debuggable="true"
+34        android:icon="@mipmap/ic_launcher"
+34-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:28:7-41
+35        android:label="@string/app_name"
+35-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:29:7-39
+36        android:taskAffinity=""
+36-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:31:7-30
+37        android:theme="@style/Theme.AppCompat" >
+37-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:30:7-45
+38        <activity
+38-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:33:5-52:16
+39            android:name="com.google.android.exoplayer2.transformerdemo.ConfigurationActivity"
+39-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:33:15-52
+40            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+40-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:34:9-118
+41            android:exported="true"
+41-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:37:9-32
+42            android:label="@string/app_name"
+42-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:36:9-41
+43            android:launchMode="singleTop"
+43-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:35:9-39
+44            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" >
+44-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:38:9-77
+45            <intent-filter>
+45-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:39:7-42:23
+46                <action android:name="android.intent.action.MAIN" />
+46-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:40:9-60
+46-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:40:17-58
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:41:9-68
+48-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:41:19-66
+49            </intent-filter>
+50            <intent-filter>
+50-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:43:7-51:23
+51                <action android:name="com.google.android.exoplayer2.transformerdemo.action.VIEW" />
+51-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:44:9-91
+51-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:44:17-89
+52
+53                <category android:name="android.intent.category.DEFAULT" />
+53-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:45:9-67
+53-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:45:19-65
+54
+55                <data android:scheme="http" />
+55-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:9-38
+55-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:15-36
+56                <data android:scheme="https" />
+56-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:9-38
+56-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:15-36
+57                <data android:scheme="content" />
+57-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:9-38
+57-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:15-36
+58                <data android:scheme="asset" />
+58-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:9-38
+58-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:15-36
+59                <data android:scheme="file" />
+59-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:9-38
+59-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:46:15-36
+60            </intent-filter>
+61        </activity>
+62        <activity
+62-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:53:5-58:79
+63            android:name="com.google.android.exoplayer2.transformerdemo.TransformerActivity"
+63-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:53:15-50
+64            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+64-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:54:9-118
+65            android:exported="true"
+65-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:57:9-32
+66            android:label="@string/app_name"
+66-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:56:9-41
+67            android:launchMode="singleTop"
+67-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:55:9-39
+68            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+68-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/transformer/src/main/AndroidManifest.xml:58:9-77
+69    </application>
+70
+71</manifest>

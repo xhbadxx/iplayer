@@ -1,0 +1,2 @@
+D com/google/android/exoplayer2/testutil/DumpFileAsserts$DumpFilesAction
+D com/google/android/exoplayer2/testutil/WebServerDispatcher$Resource$GzipSupport

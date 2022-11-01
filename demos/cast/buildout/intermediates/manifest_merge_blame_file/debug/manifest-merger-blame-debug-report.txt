@@ -1,0 +1,155 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3 Copyright (C) 2017 The Android Open Source Project
+4
+5     Licensed under the Apache License, Version 2.0 (the "License");
+6     you may not use this file except in compliance with the License.
+7     You may obtain a copy of the License at
+8
+9          http://www.apache.org/licenses/LICENSE-2.0
+10
+11     Unless required by applicable law or agreed to in writing, software
+12     distributed under the License is distributed on an "AS IS" BASIS,
+13     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14     See the License for the specific language governing permissions and
+15     limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.google.android.exoplayer2.castdemo"
+19    android:versionCode="2017001"
+20    android:versionName="2.17.1" >
+21
+22    <uses-sdk
+22-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:23:3-14
+23        android:minSdkVersion="16"
+23-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:23:3-14
+24        android:targetSdkVersion="29" />
+24-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:23:3-14
+25
+26    <uses-permission android:name="android.permission.INTERNET" />
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:19:3-64
+26-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:19:20-62
+27    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:20:3-76
+27-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:20:20-74
+28    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+28-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:21:3-74
+28-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:21:20-72
+29
+30    <application
+30-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:25:3-42:17
+31        android:name="androidx.multidex.MultiDexApplication"
+32        android:allowBackup="false"
+32-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:26:32-59
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.7.0] /Users/hien/.gradle/caches/transforms-3/2a12499f0789d82ae12af3669be2f3e1/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+34        android:debuggable="true"
+35        android:icon="@mipmap/ic_launcher"
+35-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:25:57-91
+36        android:label="@string/application_name"
+36-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:25:16-56
+37        android:largeHeap="true" >
+37-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:26:7-31
+38        <meta-data
+38-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:28:5-29:92
+39            android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
+39-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:28:16-96
+40            android:value="com.google.android.exoplayer2.ext.cast.DefaultCastOptionsProvider" />
+40-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:29:9-90
+41
+42        <activity
+42-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:31:5-40:16
+43            android:name="com.google.android.exoplayer2.castdemo.MainActivity"
+43-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:31:15-43
+44            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+44-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:32:9-118
+45            android:exported="true"
+45-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:35:9-32
+46            android:label="@string/application_name"
+46-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:33:40-80
+47            android:launchMode="singleTop"
+47-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:33:9-39
+48            android:theme="@style/Theme.AppCompat" >
+48-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:34:9-47
+49            <intent-filter>
+49-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:36:7-39:23
+50                <action android:name="android.intent.action.MAIN" />
+50-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:37:9-60
+50-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:37:17-58
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:38:9-68
+52-->/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/cast/src/main/AndroidManifest.xml:38:19-66
+53            </intent-filter>
+54        </activity>
+55
+56        <receiver
+56-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:13:9-15:40
+57            android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"
+57-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:14:13-91
+58            android:exported="false" />
+58-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:15:13-37
+59
+60        <service
+60-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:17:9-20:61
+61            android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"
+61-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:18:13-96
+62            android:exported="false"
+62-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:19:13-37
+63            android:foregroundServiceType="mediaPlayback" />
+63-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:20:13-58
+64        <service
+64-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:21:9-23:40
+65            android:name="com.google.android.gms.cast.framework.ReconnectionService"
+65-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:22:13-85
+66            android:exported="false" />
+66-->[com.google.android.gms:play-services-cast-framework:21.0.1] /Users/hien/.gradle/caches/transforms-3/0ee85e3cf25bf1a34f39ce6aa947d380/transformed/jetified-play-services-cast-framework-21.0.1/AndroidManifest.xml:23:13-37
+67
+68        <activity
+68-->[com.google.android.gms:play-services-base:18.0.1] /Users/hien/.gradle/caches/transforms-3/d4388cf081a120e0cbed70eb6894ab96/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+69            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+69-->[com.google.android.gms:play-services-base:18.0.1] /Users/hien/.gradle/caches/transforms-3/d4388cf081a120e0cbed70eb6894ab96/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+70            android:exported="false"
+70-->[com.google.android.gms:play-services-base:18.0.1] /Users/hien/.gradle/caches/transforms-3/d4388cf081a120e0cbed70eb6894ab96/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+71            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+71-->[com.google.android.gms:play-services-base:18.0.1] /Users/hien/.gradle/caches/transforms-3/d4388cf081a120e0cbed70eb6894ab96/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+72
+73        <meta-data
+73-->[com.google.android.gms:play-services-basement:18.0.0] /Users/hien/.gradle/caches/transforms-3/e996146168cbbd17fd8ec52a60c8e68c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+74            android:name="com.google.android.gms.version"
+74-->[com.google.android.gms:play-services-basement:18.0.0] /Users/hien/.gradle/caches/transforms-3/e996146168cbbd17fd8ec52a60c8e68c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+75            android:value="@integer/google_play_services_version" />
+75-->[com.google.android.gms:play-services-basement:18.0.0] /Users/hien/.gradle/caches/transforms-3/e996146168cbbd17fd8ec52a60c8e68c/transformed/jetified-play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+76
+77        <service
+77-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+78            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+78-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+79            android:exported="false" >
+79-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+80            <meta-data
+80-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+81                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+81-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+82                android:value="cct" />
+82-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/hien/.gradle/caches/transforms-3/50abca769635113029c2d6b08de6b013/transformed/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+83        </service>
+84        <service
+84-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
+85            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+85-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
+86            android:exported="false"
+86-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
+87            android:permission="android.permission.BIND_JOB_SERVICE" >
+87-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
+88        </service>
+89
+90        <receiver
+90-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
+91            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+91-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
+92            android:exported="false" />
+92-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/hien/.gradle/caches/transforms-3/87eada5df612dfba30cf420a76306d49/transformed/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
+93    </application>
+94
+95</manifest>

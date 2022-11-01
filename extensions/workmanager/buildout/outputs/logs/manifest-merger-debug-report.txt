@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:18:1-20:12
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:18:1-20:12
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:18:1-20:12
+	package
+		ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:18:11-66
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:18:1-20:12
+uses-sdk
+ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+	android:targetSdkVersion
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml
+		ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml
+		ADDED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml:19:3-15
+		INJECTED from /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/extensions/workmanager/src/main/AndroidManifest.xml

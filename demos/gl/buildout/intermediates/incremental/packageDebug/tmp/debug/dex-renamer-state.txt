@@ -1,0 +1,4 @@
+#Tue Nov 01 14:07:16 ICT 2022
+base.0=/Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/gl/buildout/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,26 @@
+com.google.android.exoplayer2.surfacedemo.demo-surface-media-1.4.3-0 /Users/hien/.gradle/caches/transforms-3/10d3f5c0559c540f894a33883b7526b3/transformed/media-1.4.3/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-jetified-annotation-experimental-1.1.0-1 /Users/hien/.gradle/caches/transforms-3/1ea548cb358626b9d6ee5e281ca76489/transformed/jetified-annotation-experimental-1.1.0/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-core-1.7.0-2 /Users/hien/.gradle/caches/transforms-3/2a12499f0789d82ae12af3669be2f3e1/transformed/core-1.7.0/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-recyclerview-1.2.1-3 /Users/hien/.gradle/caches/transforms-3/b2526b7b53c33fa41cac756a6b37eb13/transformed/recyclerview-1.2.1/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-appcompat-1.2.0-4 /Users/hien/.gradle/caches/transforms-3/d77b7cad66cf13327f65fb21f68c4c9b/transformed/appcompat-1.2.0/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-lifecycle-runtime-2.3.1-5 /Users/hien/.gradle/caches/transforms-3/e4871050211067aa40cc26b4a1cddce2/transformed/lifecycle-runtime-2.3.1/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-jetified-appcompat-resources-1.2.0-6 /Users/hien/.gradle/caches/transforms-3/fbdce2fbd31ab9caf54c40739dfa6806/transformed/jetified-appcompat-resources-1.2.0/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-pngs-7 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/generated/res/pngs/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-resValues-8 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/generated/res/resValues/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-rs-9 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/generated/res/rs/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-mergeDebugResources-10 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.google.android.exoplayer2.surfacedemo.demo-surface-mergeDebugResources-11 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.google.android.exoplayer2.surfacedemo.demo-surface-merged_res-12 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/buildout/intermediates/merged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-debug-13 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/debug/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-main-14 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/demos/surface/src/main/res
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-15 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/common/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-16 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/core/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-17 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/dash/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-18 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/database/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-19 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/datasource/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-20 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/decoder/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-21 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/extractor/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-22 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/hls/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-23 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/rtsp/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-24 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/smoothstreaming/buildout/intermediates/packaged_res/debug
+com.google.android.exoplayer2.surfacedemo.demo-surface-packaged_res-25 /Users/hien/Android Projects/Player/ExoPlayer-r2.17.1/library/ui/buildout/intermediates/packaged_res/debug
