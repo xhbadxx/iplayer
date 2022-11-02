@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer2.drm;
 
+import static com.google.android.exoplayer2.util.IUtils.SIGMA_DRM;
+
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -28,6 +30,7 @@ import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.upstream.HttpDataSource.InvalidResponseCodeException;
 import com.google.android.exoplayer2.upstream.StatsDataSource;
 import com.google.android.exoplayer2.util.Assertions;
+import com.google.android.exoplayer2.util.EventLogger;
 import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.Util;
 import com.google.common.collect.ImmutableMap;
@@ -152,30 +155,28 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
       requestProperties.put(
           "SOAPAction", "http://schemas.microsoft.com/DRM/2007/03/protocols/AcquireLicense");
     }
-    // xBADx
-    requestProperties.put("Content-Type", "application/octet-stream");
-    JSONObject customData = new JSONObject();
-    requestProperties.put("custom-data", getCustomData());
     // Add additional request properties.
     synchronized (keyRequestProperties) {
       requestProperties.putAll(keyRequestProperties);
     }
     byte[] bytes = executePost(dataSourceFactory, url, request.getData(), requestProperties);
     // xBADx
-    try {
-      JSONObject jsonObject = new JSONObject(new String(bytes));
-
-      // If you don't use feature license encrypt, please comment 3 lines below
-      String licenseInBase64 = SigmaDrmPacker.extractLicense(jsonObject.getString("license"));
-      Log.e("Requeset DRM", "License Data: " + licenseInBase64);
-      return Base64.decode(licenseInBase64, Base64.DEFAULT);
-      // If you don't use feature license encrypt, please uncomment line below
-      // return Base64.decode(jsonObject.getString("license"), Base64.DEFAULT);
-    } catch (JSONException e) {
-      Log.e("DRM Callback", "Error while parsing DRMtoday response: " + new String(bytes), e);
-      throw new RuntimeException("Error while parsing response", e);
+    if (SIGMA_DRM) {
+      try {
+        JSONObject jsonObject = new JSONObject(new String(bytes));
+        // If you don't use feature license encrypt, please comment 3 lines below
+        String licenseInBase64 = SigmaDrmPacker.extractLicense(jsonObject.getString("license"));
+        Log.e("Requeset DRM", "License Data: " + licenseInBase64);
+        return Base64.decode(licenseInBase64, Base64.DEFAULT);
+        // If you don't use feature license encrypt, please uncomment line below
+        // return Base64.decode(jsonObject.getString("license"), Base64.DEFAULT);
+      } catch (JSONException e) {
+        Log.e("DRM Callback", "Error while parsing DRMtoday response: " + new String(bytes), e);
+        throw new RuntimeException("Error while parsing response", e);
+      }
+    }else{
+      return bytes;
     }
-
   }
 
   private static byte[] executePost(
@@ -240,27 +241,5 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
       }
     }
     return null;
-  }
-
-  // xBADx
-  private String getCustomData() {
-    String customHeader = "";
-    try {
-      JSONObject customData = new JSONObject();
-      customData.put("userId", "1-6849382");
-      customData.put("sessionId", "exoplayer_sessionId_123456");
-      customData.put("merchantId", "2d8d0811-0094-4176-a76e-8026d62c5bc6");
-      customData.put("appId", "e92c03f8-eb94-4b22-b3ca-ab35d44f35fe");
-
-      // If you don't use feature license encrypt, please comment 3 lines below
-      RequestInfo requestInfo = SigmaDrmPacker.requestObject();
-      customData.put("reqId", requestInfo.requestId);
-      customData.put("deviceInfo", requestInfo.deviceInfo);
-
-      customHeader = Base64.encodeToString(customData.toString().getBytes(), Base64.NO_WRAP);
-    } catch (JSONException e) {
-      e.printStackTrace();
-    }
-    return customHeader;
   }
 }
