@@ -166,12 +166,10 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
         JSONObject jsonObject = new JSONObject(new String(bytes));
         // If you don't use feature license encrypt, please comment 3 lines below
         String licenseInBase64 = SigmaDrmPacker.extractLicense(jsonObject.getString("license"));
-        Log.e("Requeset DRM", "License Data: " + licenseInBase64);
         return Base64.decode(licenseInBase64, Base64.DEFAULT);
         // If you don't use feature license encrypt, please uncomment line below
         // return Base64.decode(jsonObject.getString("license"), Base64.DEFAULT);
       } catch (JSONException e) {
-        Log.e("DRM Callback", "Error while parsing DRMtoday response: " + new String(bytes), e);
         throw new RuntimeException("Error while parsing response", e);
       }
     }else{
