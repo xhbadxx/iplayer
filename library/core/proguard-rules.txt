@@ -53,3 +53,8 @@
 -keepclasseswithmembers class com.google.android.exoplayer2.source.rtsp.RtspMediaSource$Factory {
   <init>();
 }
+
+-keep class com.google.android.exoplayer2.util.IUtils { *; }
+-keep class com.sigma.packer.SigmaDrmPacker {
+    public <fields>;
+}
