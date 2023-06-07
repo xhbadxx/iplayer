@@ -58,3 +58,4 @@
 -keep class com.sigma.packer.SigmaDrmPacker {
     public <fields>;
 }
+-keep class com.sigma.packer.RequestInfo { *; }
