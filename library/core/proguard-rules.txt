@@ -55,7 +55,4 @@
 }
 
 -keep class com.google.android.exoplayer2.util.IUtils { *; }
--keep class com.sigma.packer.SigmaDrmPacker {
-    public <fields>;
-}
 -keep class com.sigma.packer.RequestInfo { *; }
