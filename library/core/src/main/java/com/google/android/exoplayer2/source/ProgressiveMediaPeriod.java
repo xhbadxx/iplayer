@@ -20,6 +20,8 @@ import static java.lang.Math.min;
 
 import android.net.Uri;
 import android.os.Handler;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.C.DataType;
@@ -379,10 +381,14 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
     return C.TIME_UNSET;
   }
 
+  long firstQueuedTimestampUs = Long.MIN_VALUE; //lekail
+  long[] preFirst = {0,0,0};
+
   @Override
   public long getBufferedPositionUs() {
     assertPrepared();
     boolean[] trackIsAudioVideoFlags = trackState.trackIsAudioVideoFlags;
+    boolean[] trackIsAudioFlags = trackState.trackIsAudioFlags; //lekail
     if (loadingFinished) {
       return C.TIME_END_OF_SOURCE;
     } else if (isPendingReset()) {
@@ -392,6 +398,28 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
     if (haveAudioVideoTracks) {
       // Ignore non-AV tracks, which may be sparse or poorly interleaved.
       int trackCount = sampleQueues.length;
+      //lekail start
+      if(firstQueuedTimestampUs < 0) {
+        for (int i = 0; i < trackCount; i++) {
+          if (!trackIsAudioFlags[i] && !sampleQueues[i].isLastSampleQueued() && firstQueuedTimestampUs < 0) { //get video firstQueuedTimestamp
+            firstQueuedTimestampUs = sampleQueues[i].getFirstTimestampUs();
+          }
+        }
+      }
+
+      if(firstQueuedTimestampUs > 0) {
+        for (int i = 0; i < trackCount; i++) {
+          if (trackIsAudioFlags[i] && firstQueuedTimestampUs > sampleQueues[i].getLargestQueuedTimestampUs()) {
+            //skipData(i, firstQueuedTimestampUs);
+            //sampleQueues[i].discardTo(firstQueuedTimestampUs, false, false);
+            sampleQueues[i].discardToEnd();
+            //sampleQueues[i].setStartTimeUs(firstQueuedTimestampUs);
+            Log.d("LEKAIL", "ProgressiveMediaPeriod getBufferedPositionUs id" + sampleQueueTrackIds[i].id + "skip  getFirstTimestampUs: " +  sampleQueues[i].getFirstTimestampUs());
+          }
+        }
+      }
+      //lekail end
+
       for (int i = 0; i < trackCount; i++) {
         if (trackIsAudioVideoFlags[i] && !sampleQueues[i].isLastSampleQueued()) {
           largestQueuedTimestampUs =
@@ -753,6 +781,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
     int trackCount = sampleQueues.length;
     TrackGroup[] trackArray = new TrackGroup[trackCount];
     boolean[] trackIsAudioVideoFlags = new boolean[trackCount];
+    boolean[] trackIsAudio = new boolean[trackCount]; //lekail
     for (int i = 0; i < trackCount; i++) {
       Format trackFormat = Assertions.checkNotNull(sampleQueues[i].getUpstreamFormat());
       @Nullable String mimeType = trackFormat.sampleMimeType;
@@ -760,6 +789,8 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
       boolean isAudioVideo = isAudio || MimeTypes.isVideo(mimeType);
       trackIsAudioVideoFlags[i] = isAudioVideo;
       haveAudioVideoTracks |= isAudioVideo;
+      trackIsAudio[i] = isAudio; //lekail
+      Log.d("LEKAIL", "ProgressiveMediaPeriod maybeFinishPrepare "+ "id:" + sampleQueueTrackIds[i].id + "  isAudio : "+ isAudio);
       @Nullable IcyHeaders icyHeaders = this.icyHeaders;
       if (icyHeaders != null) {
         if (isAudio || sampleQueueTrackIds[i].isIcyTrack) {
@@ -783,7 +814,7 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
       trackFormat = trackFormat.copyWithCryptoType(drmSessionManager.getCryptoType(trackFormat));
       trackArray[i] = new TrackGroup(/* id= */ Integer.toString(i), trackFormat);
     }
-    trackState = new TrackState(new TrackGroupArray(trackArray), trackIsAudioVideoFlags);
+    trackState = new TrackState(new TrackGroupArray(trackArray), trackIsAudioVideoFlags, trackIsAudio);
     prepared = true;
     Assertions.checkNotNull(callback).onPrepared(this);
   }
@@ -1103,12 +1134,15 @@ import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
     public final boolean[] trackIsAudioVideoFlags;
     public final boolean[] trackEnabledStates;
     public final boolean[] trackNotifiedDownstreamFormats;
+    public final boolean[] trackIsAudioFlags; //lekail
 
-    public TrackState(TrackGroupArray tracks, boolean[] trackIsAudioVideoFlags) {
+    //public TrackState(TrackGroupArray tracks, boolean[] trackIsAudioVideoFlags) {
+    public TrackState(TrackGroupArray tracks, boolean[] trackIsAudioVideoFlags, boolean[] trackIsAudioFlags) {
       this.tracks = tracks;
       this.trackIsAudioVideoFlags = trackIsAudioVideoFlags;
       this.trackEnabledStates = new boolean[tracks.length];
       this.trackNotifiedDownstreamFormats = new boolean[tracks.length];
+      this.trackIsAudioFlags = trackIsAudioFlags;
     }
   }
 
