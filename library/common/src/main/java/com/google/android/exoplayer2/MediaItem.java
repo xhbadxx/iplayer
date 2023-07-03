@@ -679,6 +679,11 @@ public final class MediaItem implements Bundleable {
         return this;
       }
 
+      public Builder setIsSigmaDrm(Boolean isSigmaDrm) {
+        this.isSigmaDrm = isSigmaDrm;
+        return this;
+      }
+
       public DrmConfiguration build() {
 
         return new DrmConfiguration(this);
