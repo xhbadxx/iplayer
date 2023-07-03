@@ -60,7 +60,10 @@ dependencies {
     testImplementation project(modulePrefix + 'testutils')
     testImplementation project(modulePrefix + 'robolectricutils')
     //
-    implementation 'com.sigma.packer:2.17.x:1.0.3'
+    implementation ('com.sigma.packer:2.17.x:1.0.3'){
+        exclude group: 'org.checkerframework', module: 'checker-qual'
+        exclude group: 'com.google.android.exoplayer', module: 'exoplayer-core'
+    }
 }
 
 ext {
