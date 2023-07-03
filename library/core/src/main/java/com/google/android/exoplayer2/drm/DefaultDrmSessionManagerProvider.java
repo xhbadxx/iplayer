@@ -26,6 +26,7 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Util;
 import com.google.common.primitives.Ints;
+import com.sigma.packer.SigmaMediaDrm;
 import java.util.Map;
 import org.checkerframework.checker.nullness.qual.MonotonicNonNull;
 
@@ -104,15 +105,19 @@ public final class DefaultDrmSessionManagerProvider implements DrmSessionManager
     for (Map.Entry<String, String> entry : drmConfiguration.licenseRequestHeaders.entrySet()) {
       httpDrmCallback.setKeyRequestProperty(entry.getKey(), entry.getValue());
     }
-    DefaultDrmSessionManager drmSessionManager =
-        new DefaultDrmSessionManager.Builder()
+    DefaultDrmSessionManager.Builder builder = new DefaultDrmSessionManager.Builder()
             .setUuidAndExoMediaDrmProvider(
-                drmConfiguration.scheme, FrameworkMediaDrm.DEFAULT_PROVIDER)
+                    drmConfiguration.scheme, FrameworkMediaDrm.DEFAULT_PROVIDER)
             .setMultiSession(drmConfiguration.multiSession)
             .setPlayClearSamplesWithoutKeys(drmConfiguration.playClearContentWithoutKey)
             .setUseDrmSessionsForClearContent(
-                Ints.toArray(drmConfiguration.forcedSessionTrackTypes))
-            .build(httpDrmCallback);
+                    Ints.toArray(drmConfiguration.forcedSessionTrackTypes));
+    if (drmConfiguration.isSigmaDrm) {
+      builder.setUuidAndExoMediaDrmProvider(drmConfiguration.scheme, SigmaMediaDrm.DEFAULT_PROVIDER);
+    } else {
+      builder.setUuidAndExoMediaDrmProvider(drmConfiguration.scheme, FrameworkMediaDrm.DEFAULT_PROVIDER);
+    }
+    DefaultDrmSessionManager drmSessionManager = builder.build(httpDrmCallback);
     drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
     return drmSessionManager;
   }

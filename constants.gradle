@@ -29,7 +29,7 @@ project.ext {
     mockitoVersion = '3.12.4'
     robolectricVersion = '4.6.1'
     // Keep this in sync with Google's internal Checker Framework version.
-    checkerframeworkVersion = '3.13.0'
+    checkerframeworkVersion = '3.12.0'
     checkerframeworkCompatVersion = '2.5.5'
     errorProneVersion = '2.10.0'
     jsr305Version = '3.0.2'
