@@ -24,6 +24,7 @@ import androidx.annotation.RequiresApi;
 import com.google.android.exoplayer2.MediaItem;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
+import com.google.android.exoplayer2.util.Log;
 import com.google.android.exoplayer2.util.Util;
 import com.google.common.primitives.Ints;
 import com.sigma.packer.SigmaMediaDrm;
@@ -112,6 +113,7 @@ public final class DefaultDrmSessionManagerProvider implements DrmSessionManager
             .setPlayClearSamplesWithoutKeys(drmConfiguration.playClearContentWithoutKey)
             .setUseDrmSessionsForClearContent(
                     Ints.toArray(drmConfiguration.forcedSessionTrackTypes));
+    Log.d("EventLogger", "DrmConfiguration.isSigmaDrm: " + drmConfiguration.isSigmaDrm);
     if (drmConfiguration.isSigmaDrm) {
       builder.setUuidAndExoMediaDrmProvider(drmConfiguration.scheme, SigmaMediaDrm.DEFAULT_PROVIDER);
     } else {

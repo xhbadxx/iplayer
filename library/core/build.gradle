@@ -60,7 +60,7 @@ dependencies {
     testImplementation project(modulePrefix + 'testutils')
     testImplementation project(modulePrefix + 'robolectricutils')
     //
-    implementation 'com.sigma.packer:sigma-packer:1.0.0'
+    implementation 'com.sigma.packer:2.17.x:1.0.3'
 }
 
 ext {

@@ -542,6 +542,7 @@ public final class MediaItem implements Bundleable {
       private boolean forceDefaultLicenseUri;
       private ImmutableList<@C.TrackType Integer> forcedSessionTrackTypes;
       @Nullable private byte[] keySetId;
+      private boolean isSigmaDrm;
 
       /**
        * Constructs an instance.
@@ -573,6 +574,7 @@ public final class MediaItem implements Bundleable {
         this.forceDefaultLicenseUri = drmConfiguration.forceDefaultLicenseUri;
         this.forcedSessionTrackTypes = drmConfiguration.forcedSessionTrackTypes;
         this.keySetId = drmConfiguration.keySetId;
+        this.isSigmaDrm = drmConfiguration.isSigmaDrm;
       }
 
       /** Sets the {@link UUID} of the protection scheme. */
@@ -725,6 +727,8 @@ public final class MediaItem implements Bundleable {
 
     @Nullable private final byte[] keySetId;
 
+    public final boolean isSigmaDrm;
+
     @SuppressWarnings("deprecation") // Setting deprecated field
     private DrmConfiguration(Builder builder) {
       checkState(!(builder.forceDefaultLicenseUri && builder.licenseUri == null));
@@ -742,6 +746,7 @@ public final class MediaItem implements Bundleable {
           builder.keySetId != null
               ? Arrays.copyOf(builder.keySetId, builder.keySetId.length)
               : null;
+      this.isSigmaDrm = builder.isSigmaDrm;
     }
 
     /** Returns the key set ID of the offline license. */
