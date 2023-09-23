@@ -158,8 +158,8 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
     // Add additional request properties.
     synchronized (keyRequestProperties) {
       // Check and edit RequestProperties
-      if (keyRequestProperties.containsKey("custom-data")){
-        String jsonObjectStr = keyRequestProperties.get("custom-data");
+      if (keyRequestProperties.containsKey("sigma-custom-data")){
+        String jsonObjectStr = keyRequestProperties.get("sigma-custom-data");
         if (jsonObjectStr != null) {
           try {
             JSONObject jsonObject = new JSONObject(jsonObjectStr);
