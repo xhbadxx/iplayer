@@ -161,16 +161,22 @@ public final class HttpMediaDrmCallback implements MediaDrmCallback {
       if (keyRequestProperties.containsKey("sigma-custom-data")){
         String jsonObjectStr = keyRequestProperties.get("sigma-custom-data");
         if (jsonObjectStr != null) {
+
+          JSONObject originalData;
           try {
-            JSONObject jsonObject = new JSONObject(jsonObjectStr);
-            RequestInfo requestInfo = SigmaDrmPacker.requestInfo(request.getData());
-            jsonObject.put("reqId", requestInfo.requestId);
-            jsonObject.put("deviceInfo", requestInfo.deviceInfo);
-            Log.d("EventLogger", "" + jsonObject);
-            keyRequestProperties.put("custom-data", Base64.encodeToString(jsonObject.toString().getBytes(), Base64.NO_WRAP));
-          } catch (JSONException e) {
-            throw new RuntimeException(e);
+            originalData = new JSONObject(jsonObjectStr);
+          }catch (JSONException ex) {
+            throw new RuntimeException("Error while creating object", ex);
           }
+          try {
+            RequestInfo requestInfo = SigmaDrmPacker.requestInfo(request.getData());
+            originalData.put("reqId", requestInfo.requestId);
+            originalData.put("deviceInfo", requestInfo.deviceInfo);
+            keyRequestProperties.put("custom-data", Base64.encodeToString(originalData.toString().getBytes(), Base64.NO_WRAP));
+          } catch (JSONException e) {
+            throw new RuntimeException("Error while adding key properties", e);
+          }
+
         }
       }
       // Add to Request Properties
