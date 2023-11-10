@@ -24,6 +24,8 @@ import android.os.Bundle;
 import androidx.annotation.IntDef;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
+
+import com.google.android.exoplayer2.felix.IDrmCallback;
 import com.google.android.exoplayer2.offline.StreamKey;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
@@ -543,7 +545,7 @@ public final class MediaItem implements Bundleable {
       private ImmutableList<@C.TrackType Integer> forcedSessionTrackTypes;
       @Nullable private byte[] keySetId;
       private boolean isSigmaDrm;
-
+      private IDrmCallback drmCallback;
       /**
        * Constructs an instance.
        *
@@ -575,6 +577,7 @@ public final class MediaItem implements Bundleable {
         this.forcedSessionTrackTypes = drmConfiguration.forcedSessionTrackTypes;
         this.keySetId = drmConfiguration.keySetId;
         this.isSigmaDrm = drmConfiguration.isSigmaDrm;
+        this.drmCallback = drmConfiguration.drmCallback;
       }
 
       /** Sets the {@link UUID} of the protection scheme. */
@@ -684,6 +687,11 @@ public final class MediaItem implements Bundleable {
         return this;
       }
 
+      public Builder setIDrmCallback(IDrmCallback drmCallback) {
+        this.drmCallback = drmCallback;
+        return this;
+      }
+
       public DrmConfiguration build() {
 
         return new DrmConfiguration(this);
@@ -733,6 +741,7 @@ public final class MediaItem implements Bundleable {
     @Nullable private final byte[] keySetId;
 
     public final boolean isSigmaDrm;
+    public final IDrmCallback drmCallback;
 
     @SuppressWarnings("deprecation") // Setting deprecated field
     private DrmConfiguration(Builder builder) {
@@ -752,6 +761,7 @@ public final class MediaItem implements Bundleable {
               ? Arrays.copyOf(builder.keySetId, builder.keySetId.length)
               : null;
       this.isSigmaDrm = builder.isSigmaDrm;
+      this.drmCallback = builder.drmCallback;
     }
 
     /** Returns the key set ID of the offline license. */

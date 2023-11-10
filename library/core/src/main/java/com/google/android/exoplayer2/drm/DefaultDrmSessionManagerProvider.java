@@ -120,6 +120,7 @@ public final class DefaultDrmSessionManagerProvider implements DrmSessionManager
       builder.setUuidAndExoMediaDrmProvider(drmConfiguration.scheme, FrameworkMediaDrm.DEFAULT_PROVIDER);
     }
     DefaultDrmSessionManager drmSessionManager = builder.build(httpDrmCallback);
+    drmSessionManager.setIDrmCallback(drmConfiguration.drmCallback);
     drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
     return drmSessionManager;
   }

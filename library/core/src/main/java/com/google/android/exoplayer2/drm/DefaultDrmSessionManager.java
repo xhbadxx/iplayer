@@ -37,6 +37,7 @@ import com.google.android.exoplayer2.analytics.PlayerId;
 import com.google.android.exoplayer2.drm.DrmInitData.SchemeData;
 import com.google.android.exoplayer2.drm.DrmSession.DrmSessionException;
 import com.google.android.exoplayer2.drm.ExoMediaDrm.OnEventListener;
+import com.google.android.exoplayer2.felix.IDrmCallback;
 import com.google.android.exoplayer2.upstream.DefaultLoadErrorHandlingPolicy;
 import com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy;
 import com.google.android.exoplayer2.util.Log;
@@ -83,7 +84,6 @@ public class DefaultDrmSessionManager implements DrmSessionManager {
     private boolean playClearSamplesWithoutKeys;
     private LoadErrorHandlingPolicy loadErrorHandlingPolicy;
     private long sessionKeepaliveMs;
-
     /**
      * Creates a builder with default values. The default values are:
      *
@@ -308,7 +308,7 @@ public class DefaultDrmSessionManager implements DrmSessionManager {
   private int mode;
   @Nullable private byte[] offlineLicenseKeySetId;
   private @MonotonicNonNull PlayerId playerId;
-
+  private IDrmCallback drmCallback;
   /* package */ @Nullable volatile MediaDrmHandler mediaDrmHandler;
 
   /**
@@ -454,6 +454,10 @@ public class DefaultDrmSessionManager implements DrmSessionManager {
     }
     this.mode = mode;
     this.offlineLicenseKeySetId = offlineLicenseKeySetId;
+  }
+
+  public void setIDrmCallback(IDrmCallback drmCallback) {
+      this.drmCallback = drmCallback;
   }
 
   // DrmSessionManager implementation.
@@ -782,7 +786,9 @@ public class DefaultDrmSessionManager implements DrmSessionManager {
             callback,
             checkNotNull(playbackLooper),
             loadErrorHandlingPolicy,
-            checkNotNull(playerId));
+            checkNotNull(playerId),
+            drmCallback
+        );
     // Acquire the session once on behalf of the caller to DrmSessionManager - this is the
     // reference 'assigned' to the caller which they're responsible for releasing. Do this first,
     // to ensure that eventDispatcher receives all events related to the initial

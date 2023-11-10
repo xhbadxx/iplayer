@@ -36,6 +36,7 @@ import com.google.android.exoplayer2.decoder.CryptoConfig;
 import com.google.android.exoplayer2.drm.DrmInitData.SchemeData;
 import com.google.android.exoplayer2.drm.ExoMediaDrm.KeyRequest;
 import com.google.android.exoplayer2.drm.ExoMediaDrm.ProvisionRequest;
+import com.google.android.exoplayer2.felix.IDrmCallback;
 import com.google.android.exoplayer2.source.LoadEventInfo;
 import com.google.android.exoplayer2.source.MediaLoadData;
 import com.google.android.exoplayer2.upstream.LoadErrorHandlingPolicy;
@@ -152,6 +153,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
   @Nullable private KeyRequest currentKeyRequest;
   @Nullable private ProvisionRequest currentProvisionRequest;
 
+  @Nullable private IDrmCallback drmCallback;
   /**
    * Instantiates a new DRM session.
    *
@@ -185,7 +187,8 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
       MediaDrmCallback callback,
       Looper playbackLooper,
       LoadErrorHandlingPolicy loadErrorHandlingPolicy,
-      PlayerId playerId) {
+      PlayerId playerId,
+      IDrmCallback drmCallback) {
     if (mode == DefaultDrmSessionManager.MODE_QUERY
         || mode == DefaultDrmSessionManager.MODE_RELEASE) {
       Assertions.checkNotNull(offlineLicenseKeySetId);
@@ -208,6 +211,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
     this.eventDispatchers = new CopyOnWriteMultiset<>();
     this.loadErrorHandlingPolicy = loadErrorHandlingPolicy;
     this.playerId = playerId;
+    this.drmCallback = drmCallback;
     state = STATE_OPENING;
     responseHandler = new ResponseHandler(playbackLooper);
   }
@@ -514,6 +518,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
         }
         state = STATE_OPENED_WITH_KEYS;
         dispatchEvent(DrmSessionEventListener.EventDispatcher::drmKeysLoaded);
+        if (drmCallback != null) drmCallback.onKeyLoaded(offlineLicenseKeySetId);
       }
     } catch (Exception e) {
       onKeysError(e, /* thrownByExoMediaDrm= */ true);
