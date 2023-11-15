@@ -518,7 +518,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
         }
         state = STATE_OPENED_WITH_KEYS;
         dispatchEvent(DrmSessionEventListener.EventDispatcher::drmKeysLoaded);
-        if (drmCallback != null) drmCallback.onKeyLoaded(offlineLicenseKeySetId);
+        if (drmCallback != null && (keySetId != null && keySetId.length != 0)) drmCallback.onKeyLoaded(keySetId);
       }
     } catch (Exception e) {
       onKeysError(e, /* thrownByExoMediaDrm= */ true);
