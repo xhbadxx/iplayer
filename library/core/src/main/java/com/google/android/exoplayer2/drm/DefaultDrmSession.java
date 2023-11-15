@@ -515,10 +515,10 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
             && keySetId != null
             && keySetId.length != 0) {
           offlineLicenseKeySetId = keySetId;
+          if (drmCallback != null) drmCallback.onKeyLoaded(keySetId);
         }
         state = STATE_OPENED_WITH_KEYS;
         dispatchEvent(DrmSessionEventListener.EventDispatcher::drmKeysLoaded);
-        if (drmCallback != null && (keySetId != null && keySetId.length != 0)) drmCallback.onKeyLoaded(keySetId);
       }
     } catch (Exception e) {
       onKeysError(e, /* thrownByExoMediaDrm= */ true);

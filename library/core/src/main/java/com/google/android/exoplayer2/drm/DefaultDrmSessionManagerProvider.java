@@ -16,6 +16,7 @@
 package com.google.android.exoplayer2.drm;
 
 import static com.google.android.exoplayer2.drm.DefaultDrmSessionManager.MODE_PLAYBACK;
+import static com.google.android.exoplayer2.drm.DefaultDrmSessionManager.MODE_DOWNLOAD;
 import static com.google.android.exoplayer2.util.Assertions.checkNotNull;
 
 import androidx.annotation.GuardedBy;
@@ -121,7 +122,15 @@ public final class DefaultDrmSessionManagerProvider implements DrmSessionManager
     }
     DefaultDrmSessionManager drmSessionManager = builder.build(httpDrmCallback);
     drmSessionManager.setIDrmCallback(drmConfiguration.drmCallback);
-    drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
+    if (drmConfiguration.enableDrmOffline){
+      if (drmConfiguration.getKeySetId() == null) {
+        drmSessionManager.setMode(MODE_DOWNLOAD, null);
+      }else{
+        drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
+      }
+    }else{
+      drmSessionManager.setMode(MODE_PLAYBACK, drmConfiguration.getKeySetId());
+    }
     return drmSessionManager;
   }
 }

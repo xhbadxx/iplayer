@@ -546,6 +546,7 @@ public final class MediaItem implements Bundleable {
       @Nullable private byte[] keySetId;
       private boolean isSigmaDrm;
       private IDrmCallback drmCallback;
+      private boolean enableDrmOffline;
       /**
        * Constructs an instance.
        *
@@ -578,6 +579,7 @@ public final class MediaItem implements Bundleable {
         this.keySetId = drmConfiguration.keySetId;
         this.isSigmaDrm = drmConfiguration.isSigmaDrm;
         this.drmCallback = drmConfiguration.drmCallback;
+        this.enableDrmOffline = drmConfiguration.enableDrmOffline;
       }
 
       /** Sets the {@link UUID} of the protection scheme. */
@@ -692,6 +694,11 @@ public final class MediaItem implements Bundleable {
         return this;
       }
 
+      public Builder setEnableDrmOffline(boolean enableDrmOffline) {
+        this.enableDrmOffline = enableDrmOffline;
+        return this;
+      }
+
       public DrmConfiguration build() {
 
         return new DrmConfiguration(this);
@@ -742,6 +749,7 @@ public final class MediaItem implements Bundleable {
 
     public final boolean isSigmaDrm;
     public final IDrmCallback drmCallback;
+    public final Boolean enableDrmOffline;
 
     @SuppressWarnings("deprecation") // Setting deprecated field
     private DrmConfiguration(Builder builder) {
@@ -762,6 +770,7 @@ public final class MediaItem implements Bundleable {
               : null;
       this.isSigmaDrm = builder.isSigmaDrm;
       this.drmCallback = builder.drmCallback;
+      this.enableDrmOffline = builder.enableDrmOffline;
     }
 
     /** Returns the key set ID of the offline license. */
