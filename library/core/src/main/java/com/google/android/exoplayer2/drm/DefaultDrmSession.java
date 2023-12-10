@@ -421,6 +421,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
     if (isPlaceholderSession) {
       return;
     }
+    Log.d("EventLogger", "doLicense: " + allowRetry + ", " + mode + ", " + offlineLicenseKeySetId + ", " + state);
     byte[] sessionId = Util.castNonNull(this.sessionId);
     switch (mode) {
       case DefaultDrmSessionManager.MODE_PLAYBACK:
@@ -429,6 +430,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
           postKeyRequest(sessionId, ExoMediaDrm.KEY_TYPE_STREAMING, allowRetry);
         } else if (state == STATE_OPENED_WITH_KEYS || restoreKeys()) {
           long licenseDurationRemainingSec = getLicenseDurationRemainingSec();
+          Log.d("EventLogger", "doLicense -> licenseDurationRemainingSec: " + licenseDurationRemainingSec);
           if (mode == DefaultDrmSessionManager.MODE_PLAYBACK
               && licenseDurationRemainingSec <= MAX_LICENSE_DURATION_TO_RENEW_SECONDS) {
             Log.d(
@@ -436,8 +438,10 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
                 "Offline license has expired or will expire soon. "
                     + "Remaining seconds: "
                     + licenseDurationRemainingSec);
+            Log.d("EventLogger", "doLicense -> licenseDurationRemainingSec 1");
             postKeyRequest(sessionId, ExoMediaDrm.KEY_TYPE_OFFLINE, allowRetry);
           } else if (licenseDurationRemainingSec <= 0) {
+            Log.d("EventLogger", "doLicense -> licenseDurationRemainingSec 2");
             onError(new KeysExpiredException(), DrmUtil.ERROR_SOURCE_LICENSE_ACQUISITION);
           } else {
             state = STATE_OPENED_WITH_KEYS;
@@ -491,6 +495,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
   }
 
   private void onKeyResponse(Object request, Object response) {
+    Log.d("EventLogger", "onKeyResponse: " + (request != currentKeyRequest));
     if (request != currentKeyRequest || !isOpen()) {
       // This event is stale.
       return;
@@ -502,6 +507,7 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
       return;
     }
 
+    Log.d("EventLogger", "onKeyResponse: " + mode);
     try {
       byte[] responseData = (byte[]) response;
       if (mode == DefaultDrmSessionManager.MODE_RELEASE) {
