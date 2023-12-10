@@ -476,11 +476,13 @@ import org.checkerframework.checker.nullness.qual.RequiresNonNull;
   }
 
   private long getLicenseDurationRemainingSec() {
+    Log.d("EventLogger", "doLicense -> getLicenseDurationRemainingSec: " + (C.WIDEVINE_UUID.equals(uuid)));
     if (!C.WIDEVINE_UUID.equals(uuid)) {
       return Long.MAX_VALUE;
     }
     Pair<Long, Long> pair =
         Assertions.checkNotNull(WidevineUtil.getLicenseDurationRemainingSec(this));
+    Log.d("EventLogger", "doLicense -> getLicenseDurationRemainingSec: " + pair);
     return min(pair.first, pair.second);
   }
 
