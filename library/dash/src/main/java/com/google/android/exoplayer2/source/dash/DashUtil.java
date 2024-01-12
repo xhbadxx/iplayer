@@ -339,4 +339,7 @@ public final class DashUtil {
   }
 
   private DashUtil() {}
+
+  @Nullable
+  public static LLConfiguration llConfiguration = null;
 }
