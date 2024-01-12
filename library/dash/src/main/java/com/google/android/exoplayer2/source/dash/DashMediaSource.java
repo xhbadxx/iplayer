@@ -956,7 +956,6 @@ public final class DashMediaSource extends BaseMediaSource {
       maxPlaybackSpeed = 1f;
       llConfiguration.reset();
     }
-    Log.d("FelixLLC", llConfiguration.toString());
     liveConfiguration =
         new MediaItem.LiveConfiguration.Builder()
             .setTargetOffsetMs(targetOffsetMs)
