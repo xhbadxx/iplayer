@@ -318,6 +318,7 @@ public final class SubtitleView extends FrameLayout implements Player.Listener {
    * @param bottomPaddingFraction The bottom padding fraction.
    */
   public void setBottomPaddingFraction(float bottomPaddingFraction) {
+    if (this.bottomPaddingFraction == bottomPaddingFraction) return;
     this.bottomPaddingFraction = bottomPaddingFraction;
     updateOutput();
   }
