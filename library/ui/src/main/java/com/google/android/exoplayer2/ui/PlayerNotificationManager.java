@@ -32,6 +32,7 @@ import static com.google.android.exoplayer2.util.Assertions.checkArgument;
 import static com.google.android.exoplayer2.util.Assertions.checkState;
 import static java.lang.annotation.ElementType.TYPE_USE;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.PendingIntent;
@@ -41,6 +42,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -1220,6 +1222,7 @@ public class PlayerNotificationManager {
     }
   }
 
+  @SuppressLint("WrongConstant")
   private void startOrUpdateNotification(Player player, @Nullable Bitmap bitmap) {
     boolean ongoing = getOngoing(player);
     builder = createNotification(player, builder, ongoing, bitmap);
@@ -1230,7 +1233,7 @@ public class PlayerNotificationManager {
     Notification notification = builder.build();
     notificationManager.notify(notificationId, notification);
     if (!isNotificationStarted) {
-      context.registerReceiver(notificationBroadcastReceiver, intentFilter);
+      registerReceiver();
     }
     if (notificationListener != null) {
       // Always pass true for ongoing with the first notification to tell a service to go into
@@ -1239,6 +1242,16 @@ public class PlayerNotificationManager {
           notificationId, notification, ongoing || !isNotificationStarted);
     }
     isNotificationStarted = true;
+  }
+
+  private void registerReceiver() {
+    try {
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        context.registerReceiver(notificationBroadcastReceiver, intentFilter, 4);
+      }else {
+        context.registerReceiver(notificationBroadcastReceiver, intentFilter);
+      }
+    }catch (Exception ignored){}
   }
 
   private void stopNotification(boolean dismissedByUser) {
