@@ -52,6 +52,7 @@ dependencies {
 }
 
 ext {
+    releaseArtifactId = 'extension-av1'
     javadocTitle = 'AV1 extension'
 }
 apply from: '../../javadoc_library.gradle'

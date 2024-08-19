@@ -37,6 +37,7 @@ dependencies {
 }
 
 ext {
+    releaseArtifactId = 'extension-vp9'
     javadocTitle = 'VP9 extension'
 }
 apply from: '../../javadoc_library.gradle'

@@ -36,6 +36,7 @@ dependencies {
 }
 
 ext {
+    releaseArtifactId = 'extension-opus'
     javadocTitle = 'Opus extension'
 }
 apply from: '../../javadoc_library.gradle'
