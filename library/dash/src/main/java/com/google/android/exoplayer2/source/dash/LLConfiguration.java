@@ -19,9 +19,9 @@ public class LLConfiguration {
             return;
         }
         if (fromServer) {
-            this.minLiveOffset = String.format(Locale.getDefault(), "%ds", value/1000);
+            this.minLiveOffset = String.format(Locale.getDefault(), "%.2f", value/1000.0);
         } else {
-            this.minLiveOffset = String.format(Locale.getDefault(), "(%ds)", value/1000);
+            this.minLiveOffset = String.format(Locale.getDefault(), "(%.2f)", value/1000.0);
         }
     }
 
@@ -31,9 +31,9 @@ public class LLConfiguration {
             return;
         }
         if (fromServer) {
-            this.targetLiveOffset = String.format(Locale.getDefault(), "%ds", value/1000);
+            this.targetLiveOffset = String.format(Locale.getDefault(), "%.2f", value/1000.0);
         } else {
-            this.targetLiveOffset = String.format(Locale.getDefault(), "(%ds)", value/1000);
+            this.targetLiveOffset = String.format(Locale.getDefault(), "(%.2f)", value/1000.0);
         }
     }
 
@@ -43,9 +43,9 @@ public class LLConfiguration {
             return;
         }
         if (fromServer) {
-            this.maxLiveOffset = String.format(Locale.getDefault(), "%ds", value/1000);
+            this.maxLiveOffset = String.format(Locale.getDefault(), "%.2f", value/1000.0);
         } else {
-            this.maxLiveOffset = String.format(Locale.getDefault(), "(%ds)", value/1000);
+            this.maxLiveOffset = String.format(Locale.getDefault(), "(%.2f)", value/1000.0);
         }
     }
 

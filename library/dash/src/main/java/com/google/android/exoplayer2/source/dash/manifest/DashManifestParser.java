@@ -1905,7 +1905,11 @@ public class DashManifestParser extends DefaultHandler
       case "fa01":
         return 8;
       default:
-        return Format.NO_VALUE;
+        try {
+          return Integer.parseInt(value);
+        }catch (Exception exception){
+          return Format.NO_VALUE;
+        }
     }
   }
 
